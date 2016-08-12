@@ -21,10 +21,24 @@ public class FruitCart {
      * @return The total cost of the given items.
      */
     public static int getTotal(List<String> items) {
+        // item counts
         final int apples = count(APPLE, items);
         final int oranges = count(ORANGE, items);
 
-        return (apples * 60) + (oranges * 25);
+        // orange total
+        final int orangeTotal  = (oranges * 25);
+
+        // apple total - applying a 'BOGOFF' discount...
+        int appleTotal  = ((apples / 2) * 60);
+        // odd number of apples
+        if(apples % 2 > 0) {
+            // for odd numbers of apples one gets 'lost' in rounding
+            // so add the cost of another apple
+            appleTotal += 60;
+        }
+        // else - even number of apples, the calculated cost will already be correct.
+
+        return appleTotal + orangeTotal;
     }
 
     /**
