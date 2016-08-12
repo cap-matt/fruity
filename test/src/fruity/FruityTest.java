@@ -51,8 +51,33 @@ public class FruityTest {
     }
 
     @Test
-    public void testOrangeAppleOrangeAppleOrangeAppleIs195Pence() {
+    public void testOrangeAppleOrangeAppleOrangeAppleIs170Pence() {
         // apples are buy-one-get-one-free, so only 2 of the 3 apples should be counted
-        assertEquals(195, FruitCart.getTotal(Arrays.asList("Orange", "Apple", "Orange", "Apple", "Orange", "Apple")));
+        // oranges are 3-for-2, so only 2 of the 3 oranges should be counted
+        assertEquals(170, FruitCart.getTotal(Arrays.asList("Orange", "Apple", "Orange", "Apple", "Orange", "Apple")));
+    }
+
+    @Test
+    public void testOrangeOrangeOrangeIs50Pence() {
+        // oranges are 3-for-2, so only 2 of the 3 oranges should be counted
+        assertEquals(50, FruitCart.getTotal(Arrays.asList("Orange", "Orange", "Orange")));
+    }
+
+    @Test
+    public void testFourOranges75Pence() {
+        // oranges are 3-for-2, so only 3 of the 4 oranges should be counted
+        assertEquals(75, FruitCart.getTotal(Arrays.asList("Orange", "Orange", "Orange", "Orange")));
+    }
+
+    @Test
+    public void testFiveOrangesIs100Pence() {
+        // oranges are 3-for-2, so only 4 of the 5 oranges should be counted
+        assertEquals(100, FruitCart.getTotal(Arrays.asList("Orange", "Orange", "Orange", "Orange", "Orange")));
+    }
+
+    @Test
+    public void testSixOrangesIs100Pence() {
+        // oranges are 3-for-2, so only 4 of the 6 oranges should be counted
+        assertEquals(100, FruitCart.getTotal(Arrays.asList("Orange", "Orange", "Orange", "Orange", "Orange", "Orange")));
     }
 }
