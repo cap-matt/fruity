@@ -25,8 +25,9 @@ public class FruityTest {
     // Two items
     // ////////////////////////////////////////////////////////////////////////
     @Test
-    public void testTwoApplesIs120Pence() {
-        assertEquals(120, FruitCart.getTotal(Arrays.asList("Apple", "Apple")));
+    public void testTwoApplesIs60Pence() {
+        // apples are buy-one-get-one-free, so only 1 of the 2 apples should be counted
+        assertEquals(60, FruitCart.getTotal(Arrays.asList("Apple", "Apple")));
     }
 
     @Test
@@ -43,14 +44,15 @@ public class FruityTest {
     // A whole bunch of random items
     // ////////////////////////////////////////////////////////////////////////
     @Test
-    public void testAppleAppleOrangeAppleIs205Pence() {
+    public void testAppleAppleOrangeAppleIs145Pence() {
         // combination taken from requirements example
-        assertEquals(205, FruitCart.getTotal(Arrays.asList("Apple", "Apple", "Orange", "Apple")));
+        // apples are buy-one-get-one-free, so only 2 of the 3 apples should be counted
+        assertEquals(145, FruitCart.getTotal(Arrays.asList("Apple", "Apple", "Orange", "Apple")));
     }
 
     @Test
-    public void testOrangeAppleOrangeAppleOrangeAppleIs255Pence() {
-        assertEquals(255, FruitCart.getTotal(Arrays.asList("Orange", "Apple", "Orange", "Apple", "Orange", "Apple")));
+    public void testOrangeAppleOrangeAppleOrangeAppleIs195Pence() {
+        // apples are buy-one-get-one-free, so only 2 of the 3 apples should be counted
+        assertEquals(195, FruitCart.getTotal(Arrays.asList("Orange", "Apple", "Orange", "Apple", "Orange", "Apple")));
     }
-
 }
